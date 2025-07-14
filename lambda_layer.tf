@@ -8,7 +8,9 @@ resource "null_resource" "node_dependencies" {
   }
 
   triggers = {
-    trigger_every_time = filemd5("package.json")
+  # alte Zeile von Dimitrijs  trigger_every_time = filemd5("package.json")
+  trigger_every_time = filemd5("${path.module}/${var.layer_directory}/package.json")
+
   }
 }
 
